@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                  git url: 'https://github.com/Akshayansg24/Devres.git', credentialsId: 'jenkins' 
+                  git url: 'https://github.com/Akshayansg24/Dev.git', credentialsId: 'jenkins' 
             }
         }
 
