@@ -1,21 +1,26 @@
-# Use node image
+# Base image
 FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy files
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy source
+# Copy rest of the app
 COPY . .
 
-# Build for production (if React)
+# 👇 Add this line before build
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+# Build the app
 RUN npm run build
 
-# Expose port
+# Expose port (e.g., 3000)
 EXPOSE 3000
 
-# Start app
+# Default command
 CMD ["npm", "start"]
