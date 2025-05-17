@@ -36,12 +36,12 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>🍽️ Delicious Bites</h1>
+        <h1> Delicious Bites</h1>
         <p>Your favorite restaurant in town!</p>
       </header>
 
       <section>
-        <h2>✨ Our Menu</h2>
+        <h2>Our Menu</h2>
         <ul className="menu-list">
           {menuItems.map(item => (
             <li key={item.id} className="menu-item">
@@ -59,7 +59,7 @@ function App() {
       </section>
 
       <footer>
-        <p>© 2025 Delicious Bites. Made with ❤️ in India.</p>
+        <p>© 2025 Delicious Bites. Made with love in India.</p>
       </footer>
     </div>
   );
