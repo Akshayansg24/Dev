@@ -1,39 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: restaurant-frontend
+  name: restaurant-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: restaurant-frontend
+      app: restaurant
   template:
     metadata:
       labels:
-        app: restaurant-frontend
+        app: restaurant
     spec:
       containers:
-      - name: frontend
+      - name: restaurant
         image: docaash/devops-restaurant
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: restaurant-service
 spec:
   type: NodePort
   selector:
-    app: restaurant-frontend
+    app: restaurant
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30080  # You can choose any port between 30000-32767
+      nodePort: 30008
